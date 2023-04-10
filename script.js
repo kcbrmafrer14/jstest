@@ -2,30 +2,32 @@
 function playRound(playerSelection, computerSelection) {
     
     let player = playerSelection.toLowerCase(playerSelection);
+    if (computerScore  < 5 && playerScore  < 5) {
+        if (computerSelection == "rock"
+        && player == "rock" || computerSelection == "paper" 
+        && player == "paper" || computerSelection == "scissor"
+        && player == "scissor"
+        ) {
+            result.textContent = "Tie!";
+        }
+        else if (computerSelection == "rock"
+        && player == "scissor" || computerSelection == "paper" 
+        && player == "rock" || computerSelection == "scissor"
+        && player == "paper"
+        ) {
+            result.textContent = `You lose! ${computerSelection} beats ${playerSelection}`;
+            computerScore++;
+        }
+        else {
+            result.textContent = `You win! ${playerSelection} beats ${computerSelection}`;
+            playerScore++;
+        }
+    }
 
-    if (computerSelection == "rock"
-    && player == "rock" || computerSelection == "paper" 
-    && player == "paper" || computerSelection == "scissor"
-    && player == "scissor"
-    ) {
-        result.textContent = "Tie!";
-    }
-    else if (computerSelection == "rock"
-    && player == "scissor" || computerSelection == "paper" 
-    && player == "rock" || computerSelection == "scissor"
-    && player == "paper"
-    ) {
-        result.textContent = `You lose! ${computerSelection} beats ${playerSelection}`;
-        computerScore++;
-    }
-    else {
-        result.textContent = `You win! ${playerSelection} beats ${computerSelection}`;
-        playerScore++;
-    }
-    
     scorePlayer.textContent = playerScore;
     scoreComputer.textContent = computerScore;
     winner();
+    
 }
 
 // get computer choice function
@@ -38,14 +40,10 @@ function getComputerChoice() {
 function winner() {
     if (playerScore >= 5 && playerScore >= computerScore) {
         result.textContent = "Wow! You beat a bot. Press Reset";
-        scorePlayer.textContent = 0;
-        scoreComputer.textContent = 0;
         result.style.color = "red";
     }
     else if (computerScore >= 5 && computerScore >= playerScore) {
         result.textContent = "Wow! You lost to a bot. Press Reset";
-        scorePlayer.textContent = 0;
-        scoreComputer.textContent = 0;
         result.style.color = "red";
     }
     return;
@@ -81,11 +79,14 @@ scissor.addEventListener('click', () => {
     toField("scissor", computer);
 });
 
-reset.addEventListener('click', () => {
-    scorePlayer.textContent = 0;
-    scoreComputer.textContent = 0;
-});
+reset.addEventListener('click', resetAll);
 
+function resetAll() {
+    computerScore = 0;
+    playerScore = 0;
+    result.textContent = "";
+    result.style.color = "black";
+};
 
 function toField(playerSelection, computerSelection) {
     console.log(playerSelection + " vs " + computerSelection);
