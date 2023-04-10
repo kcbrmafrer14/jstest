@@ -20,6 +20,7 @@ function playRound(playerSelection, computerSelection) {
         if (computerSelection == "paper") {
             return "Tie!";
         }
+        // hello
         else if (computerSelection == "scissor") {
             return `You lose! ${computerSelection} beats ${playerSelection}`;
         }
