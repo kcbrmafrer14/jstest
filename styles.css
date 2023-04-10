@@ -22,7 +22,8 @@ header {
 /* for the player you win computer part */
 .main > div:first-of-type {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    padding: 0 45%;
 }
 
 .battleground {
