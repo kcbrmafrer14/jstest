@@ -23,7 +23,8 @@ function playRound(playerSelection, computerSelection) {
         playerScore++;
     }
     
-    score.textContent = `You: ${playerScore} Computer: ${computerScore}`;
+    scorePlayer.textContent = playerScore;
+    scoreComputer.textContent = computerScore;
     winner();
 }
 
@@ -36,28 +37,81 @@ function getComputerChoice() {
 
 function winner() {
     if (playerScore >= 5 && playerScore >= computerScore) {
-        score.textContent = "Wow! You beat a bot. Press Reset";
+        result.textContent = "Wow! You beat a bot. Press Reset";
+        scorePlayer.textContent = 0;
+        scoreComputer.textContent = 0;
+        result.style.color = "red";
     }
     else if (computerScore >= 5 && computerScore >= playerScore) {
-        score.textContent = "Wow! You lost to a bot. Press Reset";
+        result.textContent = "Wow! You lost to a bot. Press Reset";
+        scorePlayer.textContent = 0;
+        scoreComputer.textContent = 0;
+        result.style.color = "red";
     }
-    return winner();
+    return;
 }
 
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissor = document.querySelector("#scissor");
 const result = document.querySelector('#result');
-const score = document.querySelector('#score');
+const scorePlayer = document.querySelector('#scorePlayer');
+const scoreComputer = document.querySelector('#scoreComputer');
 const reset = document.querySelector('#reset');
+const playerChoice = document.querySelector('#playerChoice');
+const computerChoice = document.querySelector('#computerChoice');
+
+
 let playerScore = 0;
 let computerScore = 0;
 
-rock.addEventListener('click', () => {playRound("rock", getComputerChoice())});
-paper.addEventListener('click', () => {playRound("paper", getComputerChoice())});
-scissor.addEventListener('click', () => {playRound("scissor", getComputerChoice())});
+rock.addEventListener('click', () => {
+    let computer = getComputerChoice();
+    playRound("rock", computer);
+    toField("rock", computer);
+});
+paper.addEventListener('click', () => {
+    let computer = getComputerChoice();
+    playRound("paper", computer);
+    toField("paper", computer);
+});
+scissor.addEventListener('click', () => {
+    let computer = getComputerChoice();
+    playRound("scissor", computer);
+    toField("scissor", computer);
+});
+
 reset.addEventListener('click', () => {
-    playerScore = 0;
-    computerScore = 0;
-    score.textContent = `You: ${playerScore} Computer: ${computerScore}`;
-})
+    scorePlayer.textContent = 0;
+    scoreComputer.textContent = 0;
+});
+
+
+function toField(playerSelection, computerSelection) {
+    console.log(playerSelection + " vs " + computerSelection);
+
+
+    if (playerSelection == "rock") {
+        playerChoice.setAttribute("src","./images/rock.png");
+    }
+    else if (playerSelection == "paper"){
+        playerChoice.setAttribute("src","./images/paper.png");
+    }
+    else {
+        playerChoice.setAttribute("src","./images/scissor.png");
+    }
+    playerChoice.style.cssText = "height: 100px;width: 100px;object-fit: contain;border: 1px solid white;border-radius: 25px;background-color: wheat;"
+
+
+    
+    if (computerSelection == "rock") {
+        computerChoice.setAttribute("src","./images/rock.png");
+    }
+    else if (computerSelection == "paper"){
+        computerChoice.setAttribute("src","./images/paper.png");
+    }
+    else {
+        computerChoice.setAttribute("src","./images/scissor.png");
+    }
+    computerChoice.style.cssText = "height: 100px;width: 100px;object-fit: contain;border: 1px solid white;border-radius: 25px;background-color: wheat;"
+}

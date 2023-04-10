@@ -4,18 +4,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissor</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-  
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissor">Scissor</button>
+    <header>Rock Paper Scissor</header>
+    <div class="main">
+        <div class="one">
+            <div class="player">
+                <h1>Player</h1>
+                <div id="scorePlayer">0</div>
+            </div>
 
-    <div id="result"></div>
-    <div id="score"></div>
+            <div class="battleground">
+                <div id="result">
+                    Result
+                </div>
 
-    <button id="reset">Reset</button>
+                <div class="arena">
+                    <div class="arenaContainer">
+                        <h1>Your Pick:</h1>
+                        <img id="playerChoice">
+                    </div>
 
-    <script src="script.js"></script>
+                    <div class="arenaContainer">
+                        <h1>Computer's Pick:</h1>
+                        <img id="computerChoice">
+                    </div>
+                </div>
+            </div>
+
+            <div class="computer">
+                <h1>Computer</h1>
+                <div id="scoreComputer">0</div>
+            </div>
+        </div>
+
+        <div class="choiceContainer">
+            <div class="choices">
+                <img src="./images/rock.png" id="rock">
+                <img src="./images/paper.png" id="paper">
+                <img src="./images/scissor.png" id="scissor">
+            </div>
+
+            <div class="info">
+                <h3>Rock Paper or Scissor?</h3>
+                <p>Click on the hand you want to play. </p>
+            </div>
+
+            <button id="reset">Reset</button>
+        </div>
+
+    </div>
+
+    <footer>
+
+    </footer>
+
 </html>

@@ -1,0 +1,120 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    background-color: antiquewhite;
+    /* border: 1px solid black; */
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+    font-size: 80px;
+    font-weight: bold;
+}
+
+.main {
+    display: grid;
+    grid-template-rows: 1fr 1fr 0.5fr;
+    padding: 50px;
+}
+
+/* for the player you win computer part */
+.main > div:first-of-type {
+    display: flex;
+    justify-content: space-between;
+}
+
+.battleground {
+    align-self: center;
+}
+
+.player > h1, .computer > h1 {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#result {
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.computer > div {
+    text-align: right;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.player > div {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.one {
+    margin-bottom: -75px;
+}
+.arena {
+    border: 2px solid black;
+    width: 450px;
+    height: 200px;
+    background-color: wheat;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.arena > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.arenaContainer > h1 {
+    justify-self: flex-end;
+    font-size: 18px;
+}
+
+#result {
+    text-align: center;
+}
+/* for rock paper scissor graphic */
+choices > img {
+    height: 200px;
+    width: 200px;
+    object-fit: contain;
+    border: 1px white solid;
+    border-radius: 25px;
+}
+
+.choiceContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 0;
+    background-color: beige;
+    border-radius: 100px;
+}
+
+.info {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.choices {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+#reset {
+    width: 150px;
+    padding: 10px;
+    background-color: wheat;
+    border-radius: 10px;
+    font-size: 25px;
+}
