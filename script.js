@@ -51,10 +51,22 @@ function getComputerChoice() {
     return random;
 }
 
-// game function = plays 5 rounds
+// say winner
+function winner() {
+    if (playerScore > computerScore) {
+        return "Final verdict: You Won!";
+    }
+    else if (computerScore > playerScore) {
+        return "Final verdict: You Lost!";
+    }
+    else {
+        return "Final verdict: It's a Tie...";
+    }
+}
+
+// game function = plays best of 5 rounds
 function game() {
-    let playerScore = 0;
-    let computerScore = 0;
+    
     for (let i = 0; i < 5; i++) {
         let playerSelection = prompt("rock paper or scissor? ");
         let computerSelection = getComputerChoice();
@@ -74,6 +86,9 @@ function game() {
         }
 
     }
+    return winner();
 }
 
+let playerScore = 0;
+let computerScore = 0;
 console.log(game());
